@@ -5,7 +5,7 @@
   <groupId>org.domotics</groupId>
   <artifactId>hub</artifactId>
   <name>Domotics Hub</name>
-  <version>1.0.1</version>
+  <version>1.0.2</version>
   <packaging>war</packaging>
 
   <properties>
@@ -30,7 +30,7 @@
   </dependencyManagement>
 
   <build>
-    <finalName>hub</finalName>
+    <finalName>hub-${project.version}</finalName>
     <plugins>
       <plugin>
         <groupId>io.thorntail</groupId>
@@ -58,9 +58,11 @@
       <artifactId>slf4j-api</artifactId>
       <version>1.7.21</version>
     </dependency>
+    <!-- https://mvnrepository.com/artifact/org.eclipse.paho/org.eclipse.paho.client.mqttv3 -->
     <dependency>
-      <groupId>io.thorntail</groupId>
-      <artifactId>microprofile-restclient</artifactId>
+      <groupId>org.eclipse.paho</groupId>
+      <artifactId>org.eclipse.paho.client.mqttv3</artifactId>
+      <version>1.2.2</version>
     </dependency>
   </dependencies>
 
