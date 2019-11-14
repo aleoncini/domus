@@ -1,4 +1,4 @@
-package org.domotics.hub.model;
+package org.domotics.hub;
 
 public class HubResult {
     public final static String SUCCESS = "success";

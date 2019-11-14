@@ -1,4 +1,4 @@
-package org.domotics.hub.rest;
+package org.domotics.hub;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;

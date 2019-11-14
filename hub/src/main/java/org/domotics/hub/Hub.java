@@ -1,7 +1,4 @@
-package org.domotics.hub.rest;
-
-import org.domotics.hub.messaging.MessagePublisher;
-import org.domotics.hub.model.HubResult;
+package org.domotics.hub;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -23,7 +20,7 @@ public class Hub {
     @Path("/health")
     public Response healthCheck() {
         logger.info("[HUB] requested healthcheck");
-        new MessagePublisher().setTopic("domotics/controllers").publish("healthcheck");
+        new MessagePublisher().publish("healthcheck");
         return Response.status(200).entity(new HubResult().setId("all controllers").setMessage("request for an healthcheck sent to broker").setResult(HubResult.SUCCESS).toString()).build();
     }
 

@@ -1,4 +1,4 @@
-package org.domotics.hub.messaging;
+package org.domotics.hub;
 
 import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
@@ -48,18 +48,11 @@ public class MessagePublisher {
             MqttClient client = new MqttClient(broker_url, CLIENT_ID, persistence);
             MqttConnectOptions mqttConnectOptions = new MqttConnectOptions();
             mqttConnectOptions.setCleanSession(true);
-
-            logger.info("Connecting to broker: "+broker);
             client.connect(mqttConnectOptions);
-
-            logger.info("Connected");
-            logger.info("Publishing message: " + msg + " on topic: " + topic);
             MqttMessage message = new MqttMessage(msg.getBytes());
             message.setQos(QOS);
             client.publish(topic, message);
-            logger.info("Message published");
             client.disconnect();
-            logger.info("Disconnected");
         } catch(Exception e) {
             logger.info(e.getLocalizedMessage());
         }
